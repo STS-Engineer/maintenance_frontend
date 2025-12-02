@@ -6,6 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 export default function MaintenanceList() {
   const [maintenances, setMaintenances] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [step, setStep] = useState(1);
 
   // Modal state
   const [isModalOpen, setIsModalOpen] = useState(false);
