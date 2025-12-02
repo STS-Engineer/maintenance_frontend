@@ -17,7 +17,7 @@ export default function MaintenanceList() {
 
   const fetchMaintenances = async () => {
     try {
-      const res = await fetch("http://localhost:4000/ajouter/list");
+      const res = await fetch("https://maint-back.azurewebsites.net/ajouter/list");
       const data = await res.json();
       setMaintenances(data);
       setLoading(false);
@@ -30,7 +30,7 @@ export default function MaintenanceList() {
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this record?")) return;
     try {
-      await fetch(`http://localhost:4000/ajouter/delete/${id}`, { method: "DELETE" });
+      await fetch(`https://maint-back.azurewebsites.net/ajouter/delete/${id}`, { method: "DELETE" });
       toast.success("Maintenance deleted successfully!", { position: "bottom-right" });
       fetchMaintenances();
     } catch (err) {
@@ -50,7 +50,7 @@ export default function MaintenanceList() {
   const handleModalSubmit = async (e) => {
     e.preventDefault();
     try {
-      await fetch(`http://localhost:4000/ajouter/edit/${currentMaintenance.maintenance_id}`, {
+      await fetch(`https://maint-back.azurewebsites.net/ajouter/edit/${currentMaintenance.maintenance_id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(currentMaintenance),
