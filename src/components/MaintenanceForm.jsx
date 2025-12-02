@@ -17,7 +17,7 @@ export default function MaintenanceForm() {
 
   const submitForm = async () => {
     try {
-      const res = await fetch("http://localhost:4000/ajouter/add", {
+      const res = await fetch("https://maint-back.azurewebsites.net/ajouter/add", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
