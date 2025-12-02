@@ -15,32 +15,39 @@ export default function MaintenanceForm() {
   const next = () => setStep(step + 1);
   const prev = () => setStep(step - 1);
 
-  const submitForm = async () => {
-    try {
-      const res = await fetch("https://maint-back.azurewebsites.net/ajouter/add", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
+ const submitForm = async () => {
+  try {
+    // Auto-convert numeric strings to numbers
+    const payload = Object.fromEntries(
+      Object.entries(form).map(([key, value]) => {
+        return [key, isNaN(value) ? value : Number(value)];
+      })
+    );
 
-      if (!res.ok) throw new Error("Submit failed");
+    const res = await fetch("https://maint-back.azurewebsites.net/ajouter/add", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
 
-      toast.success("✅ Maintenance added successfully!", {
-        position: "top-right",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        style: {
-        marginTop: "100px", // move it down from the top
-         },
-       });
-      setForm({});
-      setStep(1); // Reset form
-    } catch (err) {
-      toast.error("❌ Error submitting form", { position: "top-right" });
-      console.error(err);
-    }
-  };
+    if (!res.ok) throw new Error("Submit failed");
+
+    toast.success("✅ Maintenance added successfully!", {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      style: { marginTop: "100px" },
+    });
+
+    setForm({});
+    setStep(1);
+  } catch (err) {
+    toast.error("❌ Error submitting form", { position: "top-right" });
+    console.error(err);
+  }
+};
+
 
   return (
     <div className="form-container">
