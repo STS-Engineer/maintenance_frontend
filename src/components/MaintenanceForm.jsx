@@ -107,8 +107,8 @@ export default function MaintenanceForm() {
               <input name="Factory-efficiency-objective" placeholder="Factory Efficiency Objective" onChange={handleChange} />
               <input name="Factory-efficiency-realise" placeholder="Factory Efficiency Réalisé" onChange={handleChange} />
 
-              <input name="spare-parts-PO-objective" placeholder="Spare Parts PO Objective" onChange={handleChange} />
-              <input name="spare-parts-PO-realise" placeholder="Spare Parts PO Réalisé" onChange={handleChange} />
+              <input name="spare-parts-stock-objective" placeholder="Spare Parts PO Objective" onChange={handleChange} />
+              <input name="spare-parts-stock-realise" placeholder="Spare Parts PO Réalisé" onChange={handleChange} />
 
               <input name="Status" placeholder="Status (ex: Completed / Pending)" onChange={handleChange} />
 
