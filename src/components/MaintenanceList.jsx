@@ -129,8 +129,8 @@ export default function MaintenanceList() {
                     <td>{m["Total-hours-lost-completed"]}</td>
                     <td>{m["Factory-efficiency-objective"]}</td>
                     <td>{m["Factory-efficiency-realise"]}</td>
-                    <td>{m["spare-parts-PO-objective"]}</td>
-                    <td>{m["spare-parts-PO-realise"]}</td>
+                    <td>{m["spare-parts-stock-objective"]}</td>
+                    <td>{m["spare-parts-stock-realise"]}</td>
                     <td>{m["Status"]}</td>
                     <td>{m["created-date"]}</td>
                     <td>
@@ -231,10 +231,10 @@ export default function MaintenanceList() {
                 <input name="Factory-efficiency-realise" value={currentMaintenance["Factory-efficiency-realise"] || ""} onChange={handleModalChange} />
 
                 <label>Spare Parts PO Objective</label>
-                <input name="spare-parts-PO-objective" value={currentMaintenance["spare-parts-PO-objective"] || ""} onChange={handleModalChange} />
+                <input name="spare-parts-stock-objective" value={currentMaintenance["spare-parts-stock-objective"] || ""} onChange={handleModalChange} />
 
                 <label>Spare Parts PO Réalisé</label>
-                <input name="spare-parts-PO-realise" value={currentMaintenance["spare-parts-PO-realise"] || ""} onChange={handleModalChange} />
+                <input name="spare-parts-stock-realise" value={currentMaintenance["spare-parts-stock-realise"] || ""} onChange={handleModalChange} />
 
                 <label>Status</label>
                 <input name="Status" value={currentMaintenance["Status"] || ""} onChange={handleModalChange} />
