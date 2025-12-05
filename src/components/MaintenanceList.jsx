@@ -20,14 +20,18 @@ export default function MaintenanceList() {
     try {
       const res = await fetch("https://maint-back.azurewebsites.net/ajouter/list");
       const data = await res.json();
-      setMaintenances(data);
+
+      console.log("LIST RETURN:", data);
+
+      // Your backend returns an array directly
+      setMaintenances(Array.isArray(data) ? data : []);
+
       setLoading(false);
     } catch (err) {
       toast.error("Failed to fetch maintenance list!", { position: "bottom-right" });
       setLoading(false);
     }
   };
-
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this record?")) return;
     try {
