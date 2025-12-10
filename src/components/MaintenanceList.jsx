@@ -136,7 +136,7 @@ export default function MaintenanceList() {
                     <td>{m["spare-parts-stock-objective"]}</td>
                     <td>{m["spare-parts-stock-realise"]}</td>
                     <td>{m["Status"]}</td>
-                    <td>{m["created-date"]}</td>
+                    <td>{m["created-date"] ? new Date(m["created-date"]).toLocaleString() : ""}</td>
                     <td>
                       <button className="edit-btn" onClick={() => openEditModal(m)}>✏️ Edit</button>
                       <button className="delete-btn" onClick={() => handleDelete(m.maintenance_id)}>🗑 Delete</button>
